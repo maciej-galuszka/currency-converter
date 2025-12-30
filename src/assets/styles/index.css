@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+html {
+  font-size: 80%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Zalando sans', sans-serif;
+  background-image: url(../images/background-image.jpg);
+  background-size: cover;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

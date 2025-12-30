@@ -1,0 +1,80 @@
+/**************************/
+/* BELOW 1280px (SMALL DESKTOPS) */
+/**************************/
+
+@media (max-width: 80em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+/**************************/
+/* BELOW 800px (TABLETS) */
+/**************************/
+
+@media (max-width: 50em) {
+  div.container {
+    width: 60rem;
+  }
+}
+
+/**************************/
+/* BELOW 624px (SMALL TABLETS) */
+/**************************/
+
+@media (max-width: 39em) {
+  .header {
+    font-size: 1.8rem;
+  }
+
+  div.container {
+    max-width: 50rem;
+    height: 36rem;
+    margin: 0 2rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input.form__control {
+    padding: 0 1.4rem;
+  }
+
+  form.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 5.56rem;
+    gap: 10%;
+  }
+
+  div.results {
+    margin-top: 4rem;
+  }
+
+  .form__control {
+    padding: 0 0.5rem;
+  }
+
+  .form__value-container.css-hlgwow {
+    padding: 0;
+  }
+
+  button.btn__reverse {
+    display: none;
+  }
+}
+
+/**************************/
+/* BELOW 480px (PHONES) */
+/**************************/
+
+@media (max-width: 30em) {
+  div.container {
+    max-width: 40rem;
+    margin: 0 2rem;
+  }
+
+  .title h1 {
+    font-size: 3.1rem;
+  }
+}
