@@ -20,7 +20,9 @@ export function Results({
           Loading...<span className="loader"></span>
         </p>
       ) : (
-        <p>{`${amount} ${fromCurrency} = ${amountConverted} ${toCurrency}`}</p>
+        <p>{`${amount} ${fromCurrency} = ${amountConverted.toFixed(
+          2
+        )} ${toCurrency}`}</p>
       )}
     </div>
   );

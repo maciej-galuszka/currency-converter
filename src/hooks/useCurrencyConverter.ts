@@ -15,8 +15,13 @@ export function useCurrencyConverter(
       let isMounted = true;
 
       setError('');
+
+      // Data validation
       if (!fromCurrency || !toCurrency || !amount) return;
+
+      // If convertion currencies are the same return amount
       if (fromCurrency === toCurrency) return setAmountConverted(amount);
+
       setIsLoading(true);
 
       async function fetchCurrencyData() {
@@ -25,26 +30,36 @@ export function useCurrencyConverter(
             `https://api.frankfurter.app/latest?amount=1&from=${fromCurrency}&to=${toCurrency}`,
             { signal: controller.signal }
           );
+
           if (!res.ok)
             throw new Error('Something went wrong... Please try again!');
 
           const data = await res.json();
+
+          // Updating state only if the component is mounted
           if (isMounted) {
-            // Updating state only if the component is mounted
             setAmountConverted(amount * data.rates[toCurrency]);
+            setError('');
+            setIsLoading(false);
           }
         } catch (err) {
-          if (err instanceof TypeError) {
-            return setError(
-              'Failed to fetch data. Make sure you have an internet connection and refresh the page.'
-            );
-          } else if (err instanceof Error) {
-            return setError(err.message);
-          } else {
-            return setError('Failed to fetch');
+          // Ignoring error if the request is cancelled
+          if (err instanceof Error && err.name === 'AbortError') {
+            return;
           }
-        } finally {
-          setIsLoading(false);
+
+          if (isMounted) {
+            setIsLoading(false);
+            if (err instanceof TypeError) {
+              return setError(
+                'Failed to fetch data. Make sure you have an internet connection and refresh the page.'
+              );
+            } else if (err instanceof Error) {
+              return setError(err.message);
+            } else {
+              return setError('Failed to fetch');
+            }
+          }
         }
       }
 
