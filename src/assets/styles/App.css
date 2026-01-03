@@ -70,9 +70,9 @@ input[type='number'].form__control::-webkit-inner-spin-button {
   border-radius: 50%;
 }
 
-.btn__reverse svg {
-  width: 0.8rem;
-  height: 0.8rem;
+.btn__reverse img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .results {

@@ -11,7 +11,7 @@ export function ReverseButton({ onReverseCurrencies }: ReverseButtonProps) {
       className="btn__reverse"
       onClick={onReverseCurrencies}
     >
-      <img src={reverseIcon} alt="Reverse" />
+      <img src={reverseIcon} alt="Reverse button" className="" />
     </button>
   );
 }
