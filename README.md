@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Currency Converter 💱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the second and final version of the Currency Converter - a modern, high-performance currency converter web application. Originally built with CRA, now fully migrated to **Vite** and rewritten in **TypeScript** for better type safety and developer experience.
 
-Currently, two official plugins are available:
+## Features ✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time Conversion** 💵: Instantly convert between currencies like USD, EUR, GBP, PLN, and more.
+- **Smart Fetching** 🧠: Utilizes `AbortController` to cancel unnecessary API requests during rapid typing (prevents race conditions).
+- **TypeScript Powered** 🛡️: Robust type safety for props, state, and API responses.
+- **Dynamic UI** 🔄: Browser tab title updates dynamically to show the current conversion result.
+- **Reverse Functionality** ↔️: Quickly swap "From" and "To" currencies.
+- **Error & Loading States** ⏳❌: Elegant handling of network errors and loading indicators.
+- **Responsive Design** 📱💻: Fully optimized for all screen sizes using CSS Flexbox/Grid.
+- **Custom Selects** 🎨: Integrated `react-select` with custom theme styling.
 
-## React Compiler
+## Technologies & Tools 💻
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **React 18** (Functional Components, Hooks)
+- **TypeScript** (Static Typing)
+- **Vite** (Next-generation frontend tooling)
+- **CSS3** (Modular styling & Media Queries)
+- **React Select** (Accessible & styled dropdowns)
+- **Frankfurter API** (Reliable exchange rate data)
 
-## Expanding the ESLint configuration
+## Technical Highlights 🛠️
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Custom Hooks**: `useCurrencyConverter` encapsulates complex logic, including API calls and state management.
+- **Efficient Effects**: Optimized `useEffect` with proper cleanup functions to manage memory and network resources.
+- **Type Safety**: Types for API schemas, component props, and currency options.
+- **Abort Signals**: Implementation of `AbortController` to handle user input spikes (e.g., rapid backspacing).
+- **Vite Migration**: Faster HMR (Hot Module Replacement) and optimized build process compared to CRA.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure 🏗️
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `src/hooks/` 🔧: Custom logic and data fetching (`useCurrencyConverter.ts`).
+- `src/components/` 🧩: Modular, reusable UI components (Atomic Design approach).
+- `src/assets/` 🎨: Organized static resources:
+  - `images/`: Raster graphics (PNG, JPG).
+  - `styles/`: Global CSS and layout definitions.
+  - `svgs/`: Scalable vector icons and branding.
+- `src/types/` 📝: Centralized TypeScript interfaces and definitions.
+- `public/` 📂: Root-level static assets (favicons, manifest.json).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License 📄
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This project is open source and available under the MIT License.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Acknowledgements 🙏
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+- Exchange rates API https://frankfurter.dev
+
+- react-select: https://react-select.com
+
+- SVG icons: https://www.flaticon.com
