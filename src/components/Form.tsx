@@ -8,7 +8,7 @@ type CurrencyOption = {
 };
 
 type FormProps = {
-  amount: string;
+  value: string;
   onSetAmount: (amount: string) => void;
   fromCurrency: string;
   onSetFromCurrency: (currency: string) => void;
@@ -33,7 +33,7 @@ const options: CurrencyOption[] = [
 ];
 
 export function Form({
-  amount,
+  value,
   onSetAmount,
   fromCurrency,
   onSetFromCurrency,
@@ -48,7 +48,7 @@ export function Form({
         className="form__control"
         type="number"
         placeholder="Amount"
-        value={amount}
+        value={value}
         onChange={(e) => onSetAmount(e.target.value)}
       ></input>
       <Input

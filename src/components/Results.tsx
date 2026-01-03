@@ -1,5 +1,5 @@
 type ResultsProps = {
-  amount: number;
+  amount: string;
   amountConverted: number;
   fromCurrency: string;
   toCurrency: string;
